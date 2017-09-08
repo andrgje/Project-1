@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import time
+
+
 
 # legger inn en liten endring her jeg
 # hilsen synne
@@ -42,7 +45,16 @@ f = 100*np.exp(-10*x)
 
 b_tilde = h**2*f
 
+t0 = time.clock()
+solution = genSolution(a,b,c, b_tilde)
+t1 = time.clock()
+
+print t1-t0
+
+
+
 plt.figure()
-plt.plot(x, genSolution(a,b,c,b_tilde), x, 1-(1-np.exp(-10))*x-np.exp(-10*x))
+plt.plot(x, solution, x, 1-(1-np.exp(-10))*x-np.exp(-10*x))
 plt.legend(["v", "u"])
+plt.grid()
 plt.show()

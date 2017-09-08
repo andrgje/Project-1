@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
-
+import time
 
 def specSolTriDi(d, b):
 	bs = np.empty(len(d))
@@ -33,9 +33,18 @@ d[0] = 2
 for i in range(1,n+1,1):
 	d[i] = (i+2)/float(i+1)	
 	
-	
-print d
+t0 = time.clock()
+
+solution = specSolTriDi(d, b)
+
+t1 = time.clock()
+
+time = t1-t0
+print time
+
+
 plt.plot(x, specSolTriDi(d, b), x, 1-(1-np.exp(-10))*x-np.exp(-10*x))
 plt.legend(["v", "u"])
+plt.grid()
 plt.show()
 		
