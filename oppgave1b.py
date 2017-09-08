@@ -9,7 +9,7 @@ import time
 # hilsen synne
 
 #Algoritme for loesning av tridiagonal matrise
-#6n floating point operations
+
 def genSolution(a, b, c, b_tilde):
 	for i in range(len(a)-1):
 		faktor =  a[i]/b[i]
@@ -30,7 +30,7 @@ n = float(sys.argv[1])
 
 h = float(1)/(n+1)
 
-#Computing 
+#Computing 3
 
 a = np.empty(n)
 a.fill(-1)

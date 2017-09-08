@@ -19,18 +19,18 @@ def specSolTriDi(d, b):
 	
 n = int(sys.argv[1])
 
-x = np.linspace(0,1,n+1)
+x = np.linspace(0,1,n)
 
-h = 1./(n+1)
+h = 1./(n)
 f = 100*np.exp(-10*x)
 
 b = h**2*f
 
 #Computing analytical solution for the diagonal entries in our spescial matrix
-d = np.empty(n+1)
+d = np.empty(n)
 d[0] = 2
 
-for i in range(1,n+1,1):
+for i in range(1,n,1):
 	d[i] = (i+2)/float(i+1)	
 
 
@@ -46,7 +46,7 @@ print time
 error = 0
 u = 1-(1-np.exp(-10))*x-np.exp(-10*x)
 
-for i in range(1,int(n)-1):
+for i in range(1,int(n)-2):
 	new_error = np.log10(abs((solution[i]-u[i])/u[i]))
 	if new_error>error:
 		error = new_error
