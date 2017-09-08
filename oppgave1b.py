@@ -30,6 +30,8 @@ n = float(sys.argv[1])
 
 h = float(1)/(n+1)
 
+#Computing 
+
 a = np.empty(n)
 a.fill(-1)
 b = np.empty(n)
@@ -38,23 +40,36 @@ c = np.empty(n)
 c.fill(-1)
 
 
+#Computing right-hand side
 
 x = np.linspace(0,1,n)
-
 f = 100*np.exp(-10*x)
-
 b_tilde = h**2*f
+
+
+#Computing CPU time
 
 t0 = time.clock()
 solution = genSolution(a,b,c, b_tilde)
 t1 = time.clock()
-
 print t1-t0
+
+#Computing maximum realtive error
+
+error = 0
+u = 1-(1-np.exp(-10))*x-np.exp(-10*x)
+
+for i in range(1,int(n)-1):
+	new_error = np.log10(abs((solution[i]-u[i])/u[i]))
+	if new_error>error:
+		error = new_error
+print error
 
 
 
 plt.figure()
-plt.plot(x, solution, x, 1-(1-np.exp(-10))*x-np.exp(-10*x))
+plt.plot(x, solution, x, u)
 plt.legend(["v", "u"])
 plt.grid()
 plt.show()
+
