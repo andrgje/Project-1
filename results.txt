@@ -1,0 +1,43 @@
+
+Kjøreeksempel for programmet med den generelle algoritmen
+
+[andrgje@cheem FYS3150]$ python oppgave1b.py 10
+CPU time(n=10): 0.00
+Maximum relative error(n=10) :0.616569
+[andrgje@cheem FYS3150]$ python oppgave1b.py 100
+CPU time(n=100): 0.01
+Maximum relative error(n=100) :0.060437
+[andrgje@cheem FYS3150]$ python oppgave1b.py 1000
+CPU time(n=1000): 0.00
+Maximum relative error(n=1000) :0.006005
+[andrgje@cheem FYS3150]$ python oppgave1b.py 10000
+CPU time(n=10000): 0.03
+Maximum relative error(n=10000) :0.000600
+[andrgje@cheem FYS3150]$ python oppgave1b.py 100000
+CPU time(n=100000): 0.28
+Maximum relative error(n=100000) :0.000060
+[andrgje@cheem FYS3150]$ python oppgave1b.py 1000000
+CPU time(n=1000000): 2.92
+Maximum relative error(n=1000000) :0.000006
+[andrgje@cheem FYS3150]$ 
+
+
+
+
+
+Kjøreeksempler for programmet med den spesifikke algoritmen med forskjellige verdier for n
+
+[andrgje@cheem FYS3150]$ python oppgave1c.py 10
+CPU time usage(n=10): 0.000000
+[andrgje@cheem FYS3150]$ python oppgave1c.py 100
+CPU time usage(n=100): 0.000000
+[andrgje@cheem FYS3150]$ python oppgave1c.py 1000
+CPU time usage(n=1000): 0.000000
+[andrgje@cheem FYS3150]$ python oppgave1c.py 10000
+CPU time usage(n=10000): 0.020000
+[andrgje@cheem FYS3150]$ python oppgave1c.py 100000
+CPU time usage(n=100000): 0.170000
+[andrgje@cheem FYS3150]$ python oppgave1c.py 1000000
+CPU time usage(n=1000000): 1.800000
+[andrgje@cheem FYS3150]$ 
+
