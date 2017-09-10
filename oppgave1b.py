@@ -52,7 +52,7 @@ b_tilde[0] = b_tilde[n] = 0
 t0 = time.clock()
 solution = genSolution(n,a,b,c, b_tilde)
 t1 = time.clock()
-print "CPU time: %4.2f" %(t1-t0)
+print "CPU time(n=%d): %4.2f" %(n, t1-t0)
 
 #Computing maximum relative error
 
@@ -63,7 +63,7 @@ for i in range(1,int(n)-1):
 	new_error = abs((solution[i]-u[i])/u[i])
 	if new_error>error:
 		error = new_error
-print "Maximum relative error :%f" %(abs(1-error))
+print "Maximum relative error(n=%d) :%f" %(n, abs(1-error))
 
 
 
@@ -71,6 +71,6 @@ plt.figure()
 plt.plot(x, solution, x, u)
 plt.xlabel("x")
 plt.legend(["v - numerical solution", "u - analytical solutions"])
-plt.title("n=%d" %(n))
+plt.title("Generell algoritme for tridiagonal matrise n=%d" %(n))
 plt.grid()
 plt.show()

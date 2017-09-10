@@ -9,8 +9,9 @@ def specSolTriDi(d, b):
 	
 	for i in range(1,len(d),1):
 		bs[i] = b[i] + float(bs[i-1])/d[i-1]
-	s = np.empty(len(bs))
-	s[-1] = s[0] = bs[-1]/d[-1]
+	s = np.empty(len(bs)+1)
+	s[-2]= bs[-1]/d[-1]
+	s[0] = s[-1]= 0
 	for i in range(len(d)-2, 0, -1):
 		s[i] = (bs[i]+s[i+1])/d[i]
 	
@@ -19,9 +20,9 @@ def specSolTriDi(d, b):
 	
 n = int(sys.argv[1])
 
-x = np.linspace(0,1,n)
+x = np.linspace(0,1,n+1)
 
-h = 1./(n)
+h = 1./(n+1)
 f = 100*np.exp(-10*x)
 
 b = h**2*f
@@ -40,23 +41,29 @@ t0 = time.clock()
 solution = specSolTriDi(d, b)
 t1 = time.clock()
 time = t1-t0
-print time
+print "CPU time usage(n=%d): %f" %(n, time)
 
-#Computing realtive error
+
+u = 1-(1-np.exp(-10))*x-np.exp(-10*x) #Analytical solution
+
+
+"""#Computing relative error
 error = 0
-u = 1-(1-np.exp(-10))*x-np.exp(-10*x)
+
 
 for i in range(1,int(n)-2):
-	new_error = np.log10(abs((solution[i]-u[i])/u[i]))
+	new_error = abs((solution[i]-u[i])/u[i])
 	if new_error>error:
 		error = new_error
-print error
+print "Maximum relative error(n=%d): %f" %(n, abs(1-error))
 
-
-
+"""
 #Plotting numerical solution vs. analytical
+plt.figure()
 plt.plot(x, solution, x, u)
-plt.legend(["v", "u"])
+plt.xlabel("x")
+plt.legend(["v - numerical solution", "u - analytical solutions"])
+plt.title("Spesifikk algoritme for vaart tilfelle,  n=%d" %(n))
 plt.grid()
 plt.show()
-		
+
