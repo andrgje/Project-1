@@ -4,33 +4,32 @@ import sys
 import time
 
 
-
-# legger inn en liten endring her jeg
-# hilsen synne
-
-#Algoritme for loesning av tridiagonal matrise
+#Algorithm for solving tridiagonal matrix
 
 def genSolution(a, b, c, b_tilde):
+	
+#Forward substitution
 	for i in range(len(a)-1):
 		faktor =  a[i]/b[i]
 		b[i+1] -= faktor*c[i]
 		b_tilde[i+1] -= faktor*b_tilde[i]
 
+#Backwards substitution
 	for i in range(len(a)-1,0,-1):
 		faktor = c[i-1]/b[i]
 		b_tilde[i-1] -= faktor*b_tilde[i]
 
-
+#Factoring main diagonal to 1
 	for i in range(len(b_tilde)):
 		b_tilde[i] = b_tilde[i]/b[i]
 	return b_tilde
 
 
-n = float(sys.argv[1])
+n = float(sys.argv[1])	#number of points
 
-h = float(1)/(n+1)
+h = float(1)/(n+1)  #stepsize
 
-#Computing 3
+#Initiating 3 diagonal non-zero diagonals as vectors
 
 a = np.empty(n)
 a.fill(-1)
@@ -54,7 +53,7 @@ solution = genSolution(a,b,c, b_tilde)
 t1 = time.clock()
 print t1-t0
 
-#Computing maximum realtive error
+#Computing maximum relative error
 
 error = 0
 u = 1-(1-np.exp(-10))*x-np.exp(-10*x)
@@ -72,4 +71,3 @@ plt.plot(x, solution, x, u)
 plt.legend(["v", "u"])
 plt.grid()
 plt.show()
-
