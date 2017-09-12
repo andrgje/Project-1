@@ -41,3 +41,25 @@ CPU time usage(n=100000): 0.170000
 CPU time usage(n=1000000): 1.800000
 [andrgje@cheem FYS3150]$ 
 
+Kjøreeksempler brukt til å finne maksimal realtiv feil
+andreas@andreas-X550DP:~/Documents/FYS3150/Oblig1$ python oppgave1.py 10
+CPU time(n=10): 0.00
+Maximum relative error(n=10): 0.239113
+andreas@andreas-X550DP:~/Documents/FYS3150/Oblig1$ python oppgave1.py 100
+CPU time(n=100): 0.00
+Maximum relative error(n=100): 0.020520
+andreas@andreas-X550DP:~/Documents/FYS3150/Oblig1$ python oppgave1.py 1000
+CPU time(n=1000): 0.00
+Maximum relative error(n=1000): 0.002005
+andreas@andreas-X550DP:~/Documents/FYS3150/Oblig1$ python oppgave1.py 10000
+CPU time(n=10000): 0.05
+Maximum relative error(n=10000): 0.000200
+andreas@andreas-X550DP:~/Documents/FYS3150/Oblig1$ python oppgave1.py 100000
+CPU time(n=100000): 0.46
+Maximum relative error(n=100000): 0.000020
+andreas@andreas-X550DP:~/Documents/FYS3150/Oblig1$ python oppgave1.py 1000000
+CPU time(n=1000000): 4.50
+Maximum relative error(n=1000000): 0.000002
+andreas@andreas-X550DP:~/Documents/FYS3150/Oblig1$ python oppgave1.py 10000000
+CPU time(n=10000000): 44.89
+Maximum relative error(n=10000000): 0.000003
